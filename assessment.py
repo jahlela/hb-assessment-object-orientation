@@ -64,7 +64,7 @@ Part 1: Discussion
 
 class Student(object): 
     """
-
+    Creates a student with instance attributes of first name, last name and address
     """
 
     def __init__(self, first_name, last_name, address):
@@ -79,9 +79,6 @@ class Student(object):
 ###############################
 
 class Question(object): 
-    """
-
-    """
 
     def __init__(self, question, correct_answer):
         """ Initialize student attributes """
@@ -99,9 +96,6 @@ class Question(object):
 ###############################
 
 class Exam(object): 
-    """
-
-    """
 
     def __init__(self, name, exam_questions = []):
         """ Initialize student attributes """
@@ -130,29 +124,47 @@ class Exam(object):
 
 def take_test(exam, student):
 
-    score = exam.administer()
-    student.score = score
+    student.score = exam.administer()
 
+###############################
 
-
-def example():
+def exam_example():
 
     # Instantiate student
     amir = Student('Amir', 'Fonso', '222 Renault St.')
 
-
     # Instantiate my_exam
-
     my_exam = Exam("My new exam")
 
+    # Add questions
     my_exam.add_question("what's up", "not much")
     my_exam.add_question("Where do vanilla beans come from?", "orchids")
 
+    # Administer test
     take_test(my_exam, amir)
 
+    # Print results
     print amir.first_name, "scored ", amir.score
 
 
+exam_example()
+
+###############################
 
 
-example()
+# # Ran out of time here, but I wanted to get the number of questions in the exam
+# # and use that instead of feeding in possible score.
+
+
+# class Quiz(Exam, possible_score):
+
+#     def __init__(self):
+#         self.possible_score = possible_score
+#         raw_score = super(Exam, self).administer()
+
+#     percent = raw_score/possible_score 
+
+#     print percent > 0.5
+
+
+
